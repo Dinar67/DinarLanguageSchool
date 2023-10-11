@@ -1,4 +1,5 @@
-﻿using LanguageSchool.Components;
+﻿using LanguageSchool.Base;
+using LanguageSchool.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,35 @@ namespace LanguageSchool.Pages
             {
                 ServicesWp.Children.Add(new ServiceUserControl(service));
             }
+        }
+        private void refresh()
+        {
+            IEnumerable<Service> serviceSortList = App.db.Service;
+            if(SortCb.SelectedIndex > 0)
+            {
+                if(SortCb.SelectedIndex == 1)
+                {
+                    serviceSortList = serviceSortList.OrderBy(x => x.CostAfterDiscount);
+                }
+                else
+                {
+                    serviceSortList = serviceSortList.OrderByDescending(x => x.CostAfterDiscount);
+                }
+            }
+            ServicesWp.Children.Clear();
+            foreach (var service in serviceSortList)
+            {
+                ServicesWp.Children.Add(new ServiceUserControl(service));
+            }
+            
+            
+
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            refresh(); 
         }
     }
 }

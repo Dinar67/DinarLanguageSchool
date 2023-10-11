@@ -32,6 +32,7 @@ namespace LanguageSchool.Pages
             if (PasswordPb.Password == "0000")
             {
                 App.IsAdmin= true;
+                MessageBox.Show("Вы вошли как администратор!");
             }
             
             NavigationService.Navigate(new ServiceListPage());

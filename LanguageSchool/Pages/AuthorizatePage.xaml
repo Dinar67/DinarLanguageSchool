@@ -10,9 +10,9 @@
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="EnterBtn" Click="EnterBtn_Click">Войти</Button>
             <TextBlock>Администратору необходимо ввести пароль</TextBlock>
-            <PasswordBox x:Name="PasswordPb" Width="200"></PasswordBox>
+            <PasswordBox x:Name="PasswordPb"  Margin="5" Height="30"></PasswordBox>
+            <Button x:Name="EnterBtn" Click="EnterBtn_Click">Войти</Button>
         </StackPanel>
     </Grid>
 </Page>

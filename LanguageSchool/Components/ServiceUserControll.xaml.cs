@@ -31,7 +31,10 @@ namespace LanguageSchool.Components
             }
             TitleTb.Text = service.Title;
             CostTimeTb.Text = service.costTimeStr.ToString();
+            CostTb.Visibility = service.CostVisibility;
             CostTb.Text = (service.Cost).ToString("N0") + "  ";
+            DiscountTb.Text = service.DiscountStr.ToString();
+            MainBorder.Background = service.ColorDiscount; 
         }
     }
 }

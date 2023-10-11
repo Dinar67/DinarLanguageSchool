@@ -10,10 +10,16 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="14*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
             <RowDefinition Height="61*"></RowDefinition>
-            <RowDefinition Height="15*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
         </Grid.RowDefinitions>
+        <ComboBox HorizontalAlignment="Left" Margin="15 0" SelectionChanged="ComboBox_SelectionChanged" x:Name="SortCb" >
+            <ComboBoxItem>По умолчанию</ComboBoxItem>
+            <ComboBoxItem>По убыванию</ComboBoxItem>
+            <ComboBoxItem>По возрастанию</ComboBoxItem>
+        </ComboBox>
+        
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
             <WrapPanel x:Name="ServicesWp" ></WrapPanel>
         </ScrollViewer>

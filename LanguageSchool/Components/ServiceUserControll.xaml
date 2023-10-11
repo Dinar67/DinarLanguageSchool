@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LanguageSchool.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="450">
-    <Border BorderBrush="Black" BorderThickness="1" Width="750">
+             d:DesignHeight="150" d:DesignWidth="450" x:Name="MainBorder" Margin="4">
+    <Border  BorderThickness="1" BorderBrush="Gray" Width="750">
         <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="8*"></ColumnDefinition>
@@ -26,6 +26,7 @@
                 <TextBlock x:Name="CostTb" TextDecorations="Strikethrough"></TextBlock>
                 <TextBlock x:Name="CostTimeTb" ></TextBlock>
             </StackPanel>
+            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="DiscountTb"></TextBlock>
         
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1"> 

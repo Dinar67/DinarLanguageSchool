@@ -8,11 +8,11 @@
         Title="Школа языков 'Леарн'" Height="450" Width="860">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="13*"></RowDefinition>
+            <RowDefinition Height="24*"></RowDefinition>
             <RowDefinition Height="143*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="53*"></ColumnDefinition>
+            <ColumnDefinition Width="40*"></ColumnDefinition>
             <ColumnDefinition Width="375*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
@@ -22,7 +22,7 @@
         <Image Source="/Resources/school_logo.png"  />
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" >
             <Button x:Name="BackBTN" Click="BackBTN_Click">Назад</Button>
-            <Button x:Name="ExitBTN" Click="NextBTN_Click">Выход</Button>
+            <Button x:Name="ExitBTN" Click="ExitBTN_Click">Выход</Button>
         </StackPanel>
 
         <TextBlock Grid.Column="1" FontSize="25">Школа языков "Леарн"</TextBlock>

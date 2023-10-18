@@ -25,7 +25,7 @@ namespace LanguageSchool
         public MainWindow()
         {
             InitializeComponent();
-            //var path = @"C:\Users\212111\Desktop\Task\Сессия 1\";
+            //var path = @"C:\Users\212111\Desktop\Task\Сессия 1\services_s_import\";
             //foreach (var item in App.db.Service.ToArray())
             //{
             //    var fullPath = path + item.MainImagePath;

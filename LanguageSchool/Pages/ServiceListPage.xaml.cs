@@ -29,10 +29,7 @@ namespace LanguageSchool.Pages
                 AddBtn.Visibility = Visibility.Hidden;
             }
             var serviceList = App.db.Service.ToList();
-            foreach (var service in serviceList)
-            {
-                ServicesWp.Children.Add(new ServiceUserControl(service));
-            }
+            refresh();
         }
         private void refresh()
         {
@@ -48,6 +45,28 @@ namespace LanguageSchool.Pages
                     serviceSortList = serviceSortList.OrderByDescending(x => x.CostAfterDiscount);
                 }
             }
+            if(FilterDiscountCb.SelectedIndex != 0)
+            {
+                if (FilterDiscountCb.SelectedIndex == 1)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 0 && x.Discount < 5);
+                else if (FilterDiscountCb.SelectedIndex == 2)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 5 && x.Discount < 15);
+                else if (FilterDiscountCb.SelectedIndex == 3)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 15 && x.Discount < 30);
+                else if (FilterDiscountCb.SelectedIndex == 4)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 30 && x.Discount < 70);
+                else if (FilterDiscountCb.SelectedIndex == 5)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 70 && x.Discount <= 100);
+
+            }
+
+            if(SearchTb.Text != null)
+            {
+                serviceSortList = serviceSortList.Where(x => x.Title.ToLower().Contains
+                (SearchTb.Text.ToLower()) || x.Description.ToLower().Contains
+                (SearchTb.Text.ToLower()));
+            }
+
             ServicesWp.Children.Clear();
             foreach (var service in serviceSortList)
             {
@@ -62,6 +81,16 @@ namespace LanguageSchool.Pages
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             refresh(); 
+        }
+
+        private void FilterDiscountCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            refresh();
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            refresh();
         }
     }
 }

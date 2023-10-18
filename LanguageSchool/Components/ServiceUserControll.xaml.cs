@@ -1,6 +1,7 @@
 ﻿using LanguageSchool.Base;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,20 @@ namespace LanguageSchool.Components
             CostTb.Visibility = service.CostVisibility;
             CostTb.Text = (service.Cost).ToString("N0") + "  ";
             DiscountTb.Text = service.DiscountStr.ToString();
-            MainBorder.Background = service.ColorDiscount; 
+            MainBorder.Background = service.ColorDiscount;
+            
+            MainImage.Source = GetImage(service.MainImage);
         }
+
+        private BitmapImage GetImage(byte[] byteImage)
+        {
+            MemoryStream byteStream = new MemoryStream(byteImage);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = byteStream;
+            image.EndInit();
+            return image;
+        }
+
     }
 }

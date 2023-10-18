@@ -12,6 +12,7 @@ namespace LanguageSchool.Base
 {
     public partial class Service
     {
+        //
         public string costTimeStr
         {
             get

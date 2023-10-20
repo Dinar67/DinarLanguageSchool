@@ -9,32 +9,47 @@
       Title="AddEditServicePage">
 
     <Grid>
-        <StackPanel Width="300" Height="400">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-            <TextBlock>Название</TextBlock>
-            <TextBox></TextBox>
-        </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-            <TextBlock>Стоимость</TextBlock>
-            <TextBox></TextBox>
-        </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-            <TextBlock>Длительность</TextBlock>
-            <TextBox></TextBox>
-        </StackPanel>
-
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-            <TextBlock>Описание</TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Width="300" Height="400">
+                <Border BorderThickness="2" BorderBrush="Gray" Margin="15" Height="200" Width="200"><Image x:Name="MainImage" Source="{Binding MainImage}"></Image></Border>
+                
+                
+                <Button Content="Изменить изображение" Margin="15" x:Name="EditImageBtn"></Button>
+            </StackPanel>
+            
+            <StackPanel Width="320" Height="450" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5" x:Name="IdentityStack">
+                    <TextBlock x:Name="IdTb">Идентификатор</TextBlock>
+                    <TextBox Text="{Binding ID}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+                    <TextBlock x:Name="TitleTb" >Название</TextBlock>
+                    <TextBox Text="{Binding Title}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+                    <TextBlock x:Name="CostTb"  >Стоимость</TextBlock>
+                    <TextBox Text="{Binding Cost}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+                    <TextBlock x:Name="TimeTb" >Длительность</TextBlock>
+                    <TextBox Text="{Binding DurationInSeconds}"></TextBox>
+                </StackPanel>    
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <TextBlock x:Name="DescriptionTb" >Описание</TextBlock>
             <TextBox Height="150"></TextBox>
         </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-            <TextBlock>Скидка</TextBlock>
-            <TextBox></TextBox>
+            <TextBlock x:Name="DiscountTb">Скидка</TextBlock>
+            <TextBox  Text="{Binding Discount}"></TextBox>
         </StackPanel>
-            <Button Margin="5" Click="Button_Click">Сохранить</Button>
+            <Button Margin="15" x:Name="SaveBtn" Click="SaveBtn_Click">Сохранить</Button>
         </StackPanel>
+            </StackPanel>
+        
+
+
+        
         
     </Grid>
 </Page>

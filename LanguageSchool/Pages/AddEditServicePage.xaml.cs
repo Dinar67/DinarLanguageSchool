@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LanguageSchool.Base;
 
 namespace LanguageSchool.Pages
 {
@@ -20,12 +21,15 @@ namespace LanguageSchool.Pages
     /// </summary>
     public partial class AddEditServicePage : Page
     {
-        public AddEditServicePage()
+        private Service service;
+        public AddEditServicePage(Service _service)
         {
             InitializeComponent();
+            service = _service;
+            this.DataContext = service; 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }

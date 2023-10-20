@@ -56,7 +56,7 @@ namespace LanguageSchool.Components
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            Navigation.NextPage(new PageComponent("Редактирование услуги", new AddEditServicePage()));
+            Navigation.NextPage(new PageComponent("Редактирование услуги", new AddEditServicePage(service)));
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)

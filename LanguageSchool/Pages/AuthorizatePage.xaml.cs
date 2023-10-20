@@ -34,8 +34,8 @@ namespace LanguageSchool.Pages
                 App.IsAdmin= true;
                 MessageBox.Show("Вы вошли как администратор!");
             }
-            
-            NavigationService.Navigate(new ServiceListPage());
+
+            Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
         }
     }
 }

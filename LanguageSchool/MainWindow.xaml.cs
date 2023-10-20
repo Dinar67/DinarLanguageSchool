@@ -25,6 +25,7 @@ namespace LanguageSchool
         public MainWindow()
         {
             InitializeComponent();
+            Navigation.mainWindow = this;
             //var path = @"C:\Users\212111\Desktop\Task\Сессия 1\services_s_import\";
             //foreach (var item in App.db.Service.ToArray())
             //{
@@ -33,19 +34,18 @@ namespace LanguageSchool
 
             //}
             //App.db.SaveChanges();
-            MyFrame.Navigate(new AuthorizatePage());
+            Navigation.NextPage(new PageComponent("Авторизация", new AuthorizatePage()));
         }
 
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
-            if(MyFrame.CanGoBack)
-                MyFrame.GoBack(); MyFrame.RemoveBackEntry();
+            Navigation.BackPage();
         }
 
         private void ExitBTN_Click(object sender, RoutedEventArgs e)
         {
-            App.IsAdmin = false;
-            MyFrame.Navigate(new AuthorizatePage());
+            Navigation.ClearHistory();
+            Navigation.NextPage(new PageComponent("Авторизация", new AuthorizatePage()));
         }
     }
 }

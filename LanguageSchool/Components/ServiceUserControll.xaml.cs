@@ -14,17 +14,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LanguageSchool.Pages;
 
 namespace LanguageSchool.Components
 {
     /// <summary>
     /// Логика взаимодействия для UserControl.xaml
     /// </summary>
-    public partial class ServiceUserControl : UserControl
+    public partial class ServiceUserControll : UserControl
     {
-        public ServiceUserControl(Service service)
+        private Service service;
+
+        public ServiceUserControll(Service _service)
         {
             InitializeComponent();
+            service = _service;
             if(App.IsAdmin == false)
             {
                 EditBtn.Visibility = Visibility.Hidden;
@@ -50,5 +54,22 @@ namespace LanguageSchool.Components
             return image;
         }
 
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Редактирование услуги", new AddEditServicePage()));
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(service.ClientService != null)
+            {
+                MessageBox.Show("Удвление запрещено! На эту услугу ещё есть записи.");
+            }
+            else
+            {
+                App.db.Service.Remove(service);
+                App.db.SaveChanges();
+            }
+        }
     }
 }

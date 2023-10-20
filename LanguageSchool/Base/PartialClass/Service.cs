@@ -54,6 +54,7 @@ namespace LanguageSchool.Base
             {
                 return Cost - (Cost * (decimal)Discount / 100);
             } 
+
         }
 
     }

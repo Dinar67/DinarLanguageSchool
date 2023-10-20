@@ -66,11 +66,11 @@ namespace LanguageSchool.Pages
                 (SearchTb.Text.ToLower()) || x.Description.ToLower().Contains
                 (SearchTb.Text.ToLower()));
             }
-
+            CountDataTb.Text = serviceSortList.Count() + " из " + App.db.Service.Count();
             ServicesWp.Children.Clear();
             foreach (var service in serviceSortList)
             {
-                ServicesWp.Children.Add(new ServiceUserControl(service));
+                ServicesWp.Children.Add(new ServiceUserControll(service));
             }
             
             
@@ -91,6 +91,11 @@ namespace LanguageSchool.Pages
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             refresh();
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Добавление услуги", new AddEditServicePage()));
         }
     }
 }

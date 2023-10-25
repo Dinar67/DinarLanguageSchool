@@ -95,9 +95,8 @@ namespace LanguageSchool.Pages
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            Service service = App.db.Service.Add(new Service());
-            App.db.SaveChanges();
-            Navigation.NextPage(new PageComponent("Добавление услуги", new AddEditServicePage(service)));
+            
+            Navigation.NextPage(new PageComponent("Добавление услуги", new AddEditServicePage(new Service())));
         }
     }
 }

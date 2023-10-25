@@ -46,12 +46,16 @@ namespace LanguageSchool.Components
 
         private BitmapImage GetImage(byte[] byteImage)
         {
-            MemoryStream byteStream = new MemoryStream(byteImage);
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = byteStream;
-            image.EndInit();
-            return image;
+            if(byteImage != null)
+            {
+                MemoryStream byteStream = new MemoryStream(byteImage);
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.StreamSource = byteStream;
+                image.EndInit();
+                return image;
+            }
+            return null;
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)

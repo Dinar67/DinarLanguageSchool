@@ -52,6 +52,7 @@ namespace LanguageSchool.Base
         public decimal CostAfterDiscount { 
             get
             {
+                
                 return Cost - (Cost * (decimal)Discount / 100);
             } 
 

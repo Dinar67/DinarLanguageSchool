@@ -26,6 +26,6 @@
         </StackPanel>
 
         <TextBlock Grid.Column="1" FontSize="25" HorizontalAlignment="Center" x:Name="TitleTb">Школа языков "Леарн"</TextBlock>
-        <Frame x:Name="MyFrame" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>
+        <Frame x:Name="MyFrame" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame> <!-- Yeees-->
     </Grid>
 </Window>
